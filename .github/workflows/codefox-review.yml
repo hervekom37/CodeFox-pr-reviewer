@@ -1,4 +1,4 @@
-name: Code Review
+name: CodeFox AI Code Review
 
 permissions:
   contents: read
@@ -6,6 +6,7 @@ permissions:
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
   pull_request_review_comment:
     types: [created]
 
@@ -13,7 +14,12 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: hervekom37/codefox@main
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # Si tu veux tester l'action qui est dans ce repo (action.yml à la racine)
+      - name: Run CodeFox (local action)
+        uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
