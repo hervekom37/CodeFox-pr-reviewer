@@ -1,11 +1,11 @@
 {
-  "name": "openai-pr-reviewer",
+  "name": "codefox",
   "version": "0.0.0",
   "private": true,
-  "description": "OpenAI-based PR Reviewer and Summarizer.",
+  "description": "CodeFox - AI-Powered Pull Request Reviewer. Stop shipping slop. Start shipping quality.",
   "main": "lib/main.js",
   "scripts": {
-    "build": "cp node_modules/@dqbd/tiktoken/tiktoken_bg.wasm dist/tiktoken_bg.wasm && tsc",
+    "build": "copy node_modules\\@dqbd\\tiktoken\\tiktoken_bg.wasm dist\\tiktoken_bg.wasm && tsc",
     "package": "ncc build --license licenses.txt",
     "act": "npm run build && npm run package && ./bin/act pull_request_target --secret-file .secrets",
     "format": "prettier --write '**/*.ts'",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fluxninja/openai-pr-reviewer.git"
+    "url": "git+https://github.com/codefox/ai-pr-reviewer.git"
   },
   "keywords": [
     "actions",
